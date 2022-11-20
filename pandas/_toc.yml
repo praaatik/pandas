@@ -1,6 +1,6 @@
 format: jb-book
 root: intro
-parts: 
+parts:
   - caption: Pandas
-  chapters:
-    - file: notebooks/series/Introduction
+    chapters:
+      - file: notebooks/series/Introduction
