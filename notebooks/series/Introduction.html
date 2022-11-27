@@ -375,6 +375,69 @@ title="Print to PDF"
    to get the length of the series
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-by-index-position">
+   Extracting by index position
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-prefix-and-add-suffix">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     add_prefix()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     add_suffix()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loc-and-iloc">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     loc
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     iloc
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-mask">
+     Boolean mask
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-a-list-of-values-to-loc-and-iloc">
+     Passing a list of values to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       loc
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iloc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-using-a-slice">
+     Selecting using a slice
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -440,6 +503,69 @@ title="Print to PDF"
    to get the length of the series
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-by-index-position">
+   Extracting by index position
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-prefix-and-add-suffix">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     add_prefix()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     add_suffix()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loc-and-iloc">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     loc
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     iloc
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-mask">
+     Boolean mask
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-a-list-of-values-to-loc-and-iloc">
+     Passing a list of values to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       loc
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iloc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-using-a-slice">
+     Selecting using a slice
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -455,12 +581,22 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_random_series</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -527,19 +663,19 @@ dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_series: 
-0    63
-1    79
-2    64
-3    50
-4    66
+0    92
+1    47
+2    23
+3    19
+4    17
 dtype: int64
 
 dict_series: 
-66     4
-94    47
-97    81
-36    44
-88    71
+15    86
+80    79
+19    56
+18    90
+36    57
 dtype: int64
 </pre></div>
 </div>
@@ -610,11 +746,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pota&#39;, &#39;django&#39;, &#39;kitty&#39;, &#39;mikki&#39;] [7, 5, 7, 10]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,10 +755,10 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7       pota
-5     django
-7      kitty
-10     mikki
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9       pota
+10    django
+8      kitty
+6      mikki
 Name: Cats, dtype: object
 </pre></div>
 </div>
@@ -643,9 +774,9 @@ Name: Cats, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7    pota
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9    pota
  Name: Cats, dtype: object,
- 10    mikki
+ 6    mikki
  Name: Cats, dtype: object)
 </pre></div>
 </div>
@@ -669,6 +800,210 @@ Name: Cats, dtype: object
 </div>
 </div>
 </div>
+</section>
+<section id="extracting-by-index-position">
+<h2>Extracting by index position<a class="headerlink" href="#extracting-by-index-position" title="Permalink to this headline">#</a></h2>
+<p>Elements in a series can be accessed by the index the same way we access a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
+
+<span class="n">letters_lowercase</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters_lowercase</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    a
+1    b
+2    c
+3    d
+4    e
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeled_letters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">ascii_uppercase</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">letters_lowercase</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    A
+b    B
+c    C
+d    D
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first letter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">labeled_letters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">labeled_letters</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+
+<span class="c1"># 11th letter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="n">labeled_letters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">labeled_letters</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">])</span>
+
+<span class="c1"># first 3 letters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">labeled_letters</span><span class="p">[:</span><span class="s1">&#39;c&#39;</span><span class="p">])</span> <span class="c1"># notice how the labeled access includes the label</span>
+
+<span class="c1"># last 6 letters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+a    A
+b    B
+dtype: object a    A
+b    B
+c    C
+dtype: object
+u    U
+v    V
+w    W
+x    X
+y    Y
+z    Z
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-prefix-and-add-suffix">
+<h2><code class="docutils literal notranslate"><span class="pre">add_prefix()</span></code> and <code class="docutils literal notranslate"><span class="pre">add_suffix()</span></code><a class="headerlink" href="#add-prefix-and-add-suffix" title="Permalink to this headline">#</a></h2>
+<p>These methods can be used to add a prefix and suffix to the <em>labels</em> of the series/dataframe.</p>
+<blockquote>
+<div><p>These are not inplace operations and create a new copy</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">letters_lowercase</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;index_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters_lowercase</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>index_0    a
+index_1    b
+index_2    c
+dtype: object
+0    a
+1    b
+2    c
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loc-and-iloc">
+<h2><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#loc-and-iloc" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loc</span></code> can be used locate the elements in the Series/Dataframe. It is <em>label based</em> which means we need to specify the rows and columns based on the labels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iloc</span></code> is <em>integer based</em> so we need to specify the <strong>integer position values</strong>.</p></li>
+<li><p>Syntax for <code class="docutils literal notranslate"><span class="pre">loc</span></code> - <code class="docutils literal notranslate"><span class="pre">loc[row_label,</span> <span class="pre">col_label]</span></code></p></li>
+<li><p>Syntax for <code class="docutils literal notranslate"><span class="pre">iloc</span></code> - <code class="docutils literal notranslate"><span class="pre">iloc[row_position,</span> <span class="pre">col_position]</span></code></p></li>
+</ul>
+<p>Example - <code class="docutils literal notranslate"><span class="pre">labeled_letters.loc['d']</span> <span class="pre">==</span> <span class="pre">labeled_letters.iloc[3]</span></code> <em>(returns True)</em></p>
+<section id="boolean-mask">
+<h3>Boolean mask<a class="headerlink" href="#boolean-mask" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>This is used with <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select items at a scale</p></li>
+<li><p>They need to be of the same length as the series</p></li>
+<li><p>They can be used with a callable, slice and passing through list of values.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_mask</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters_lowercase</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">random_mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     a
+2     c
+3     d
+4     e
+7     h
+8     i
+13    n
+16    q
+17    r
+22    w
+24    y
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeled_letters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">labeled_letters</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-a-list-of-values-to-loc-and-iloc">
+<h3>Passing a list of values to <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#passing-a-list-of-values-to-loc-and-iloc" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">]],</span> <span class="n">labeled_letters</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">13</span><span class="p">]],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    A
+b    B
+f    F
+dtype: object
+d    D
+f    F
+n    N
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selecting-using-a-slice">
+<h3>Selecting using a slice<a class="headerlink" href="#selecting-using-a-slice" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">labeled_letters</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">],</span> <span class="n">labeled_letters</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    A
+b    B
+c    C
+d    D
+e    E
+f    F
+dtype: object
+c    C
+d    D
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
